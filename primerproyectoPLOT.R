@@ -18,5 +18,22 @@ hist(subbd$Global_active_power, col="red",
 #Segundo PLOT
 plot (subbd$DateTime, subbd$Global_active_power, type = "l", ylab="Global Active Power (Kilowatts)")
 #Tercer PLOT Tres colores para submetering
-plot (subbd$DateTime, subbd$Sub_metering_3, type = "l", ylab="Sub-metering" )
+par(mar=c(3,4,2,2))
+with(subbd, plot(DateTime, Sub_metering_1, type="n", ylab="Energy Sub metering"))
+with(subbd, points(DateTime, Sub_metering_1, type="l"))
+with(subbd, points(DateTime, Sub_metering_2, type="l", col="red"))
+with(subbd, points(DateTime, Sub_metering_3, type="l",  col="blue"))
+legend("topright", pch=c("-","-","-"), col= c("black", "red", "blue"), legend= c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 # cuarto plot
+par(mfcol=c(2,2))
+par(mar=c(2,4,2,2))
+plot (subbd$DateTime, subbd$Global_active_power, type = "l", ylab="Global Active Power (Kilowatts)")
+with(subbd, plot(DateTime, Sub_metering_1, type="n", ylab="Energy Sub metering"))
+with(subbd, points(DateTime, Sub_metering_1, type="l"))
+with(subbd, points(DateTime, Sub_metering_2, type="l", col="red"))
+with(subbd, points(DateTime, Sub_metering_3, type="l",  col="blue"))
+legend("topright", pch=c("-","-","-"), col= c("black", "red", "blue"), legend= c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+par(mar=c(4,4,2,2))
+plot (subbd$DateTime, subbd$Voltage, type = "l", ylab="Voltage", xlab="Datetime")
+plot (subbd$DateTime, subbd$Global_reactive_power, type = "l", ylab="Global reactive power", xlab="Datetime")
+#fin
