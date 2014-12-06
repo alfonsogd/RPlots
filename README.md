@@ -1,4 +1,5 @@
 RPlots
 ======
 
-Proyecto de Exploracion de datos
+Data exploration assignment
+Four plots and four R code files
